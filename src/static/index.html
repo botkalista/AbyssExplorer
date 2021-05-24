@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyss Explorer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div v-for="event of events" class="event">
+            <div style="display: flex;">
+                <div class="event-type">
+                    <span class="tag"
+                        :class="{'is-success': event.type=='Create','is-warning': event.type=='Update','is-danger': event.type=='Delete' }">
+                        {{event.type}}
+                    </span>
+                </div>
+                <div class="event-uri" @click="event.showData=!event.showData">
+                    {{event.uri}}
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;" v-if="event.showData">
+                <div class="event-data">
+                    <pre>{{getEventData(event.data)}}</pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<style>
+    .event {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0;
+    }
+
+    .event-type {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .event-data {
+        width: 90%;
+        border: 1px solid black;
+        border-radius: 8px;
+        margin: 8px 0;
+    }
+
+
+    .event-uri:hover {
+        background-color: rgb(148, 146, 146);
+    }
+</style>

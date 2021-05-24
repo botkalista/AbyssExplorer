@@ -1,0 +1,17 @@
+{
+  "name": "AbyssExplorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ayaya-lcu-connector": "^3.1.0",
+    "electron": "^12.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
